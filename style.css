@@ -1,3 +1,4 @@
+/* Reset */
 *,
 *::before,
 *::after {
@@ -16,6 +17,78 @@ button {
   cursor: pointer;
 }
 
+/* Global style */
+:root {
+  --color-light: #FDF4FF;
+  --color-light-primary: #F7D9FF;
+  --color-primary: #D150FF;
+  --color-secondary: #B01FE3;
+  --color-dark-secondary: #660087;
+  --color-dark: #3A004F;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: var(--color-light);
+}
+
+/* Component style */
+.app {
+  width: 300px;
+  margin: 100px auto 0;
+}
+
+.config-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.current-status {
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.config-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  color: var(--color-dark);
+  transition: all 250ms;
+}
+
+.config-btn:hover {
+  color: var(--color-dark-secondary);
+  transform: rotate(90deg);
+}
+
+.clock-container {
+  margin-top: 5px;
+  padding: 20px;
+  background-color: var(--color-light-primary);
+  border-radius: 10px;
+}
+
+.clock {
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-dark);
+}
+
+.clock-btn {
+  display: block;
+  margin: 10px auto 0;
+  text-transform: uppercase;
+  border: none;
+  font-size: 25px;
+  color: var(--color-light);
+  background-color: var(--color-dark-secondary);
+  padding: 5px 20px;
+  border-radius: 10px;
+  transition: all 250ms;
+}
+
+.clock-btn:hover {
+  box-shadow: 0 0 10px var(--color-secondary);
 }
