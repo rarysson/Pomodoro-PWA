@@ -47,6 +47,7 @@ body {
 .current-status {
   text-transform: uppercase;
   color: var(--color-dark);
+  padding: 5px 10px;
 }
 
 .config-btn {
@@ -57,7 +58,11 @@ body {
   transition: all 250ms;
 }
 
-.config-btn:hover {
+.config-btn:disabled {
+  cursor: not-allowed;
+}
+
+.config-btn:not(:disabled):hover {
   color: var(--color-dark-secondary);
   transform: rotate(90deg);
 }
@@ -91,4 +96,116 @@ body {
 
 .clock-btn:hover {
   box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.modal {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  place-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 300px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-light);
+  border-radius: 10px;
+  padding: 35px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  transition: all 250ms;
+  border-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.close-modal-btn:hover {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.input-container:last-of-type {
+  margin-top: 25px;
+}
+
+.input-container label {
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  padding: 5px 5px 5px 10px;
+  max-width: 100px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: all 250ms;
+}
+
+.input-container input:focus {
+  outline: 1px solid var(--color-dark);
+}
+
+.input-container input:invalid {
+  border-color: red;
+}
+
+.input-container input:invalid + label {
+  color: red;
+}
+
+.save-config-btn {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  border: none;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 14px;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  text-transform: uppercase;
+  transition: all 250ms;
+}
+
+.save-config-btn:hover {
+  box-shadow: 0 0 5px var(--color-secondary);
+}
+
+.blink {
+  animation: blink 3s;
+}
+
+@keyframes blink {
+  0%, 40%, 80% {
+    color: var(--color-dark);
+    background-color: var(--color-light);
+  }
+
+  20%, 60%, 100% {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+  }
 }
