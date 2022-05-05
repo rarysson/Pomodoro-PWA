@@ -1,10 +1,9 @@
-import './style.css'
 import {
 	getWorkTime,
 	setWorkTime,
 	getBreakTime,
 	setBreakTime
-} from './localStorage';
+} from './localStorage.js';
 
 const $clock = document.querySelector('.clock');
 const $clockBtn = document.querySelector('.clock-btn');
@@ -111,3 +110,13 @@ $saveConfigBtn.addEventListener('click', () => {
 });
 
 timer.value = getTimeInSeconds(getWorkTime());
+
+async function loadServiceWorker() {
+	try {
+		await navigator.serviceWorker.register("sw.js");
+	} catch (error) {
+		console.error('Error while registering: ' + error.message);
+	}
+}
+
+loadServiceWorker();
