@@ -2,9 +2,9 @@ let cacheName = 'pomodoro';
 let filesToCache = [
 	'/',
 	'/index.html',
-	'/style.css',
-	'/main.js',
-	'/localStorage.js',
+	'/css/style.css',
+	'/js/main.js',
+	'/js/localStorage.js',
 	'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap',
 	'https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css',
 	'https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/fonts/forkawesome-webfont.woff2?v=1.2.0'

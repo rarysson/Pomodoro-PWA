@@ -113,7 +113,7 @@ timer.value = getTimeInSeconds(getWorkTime());
 
 async function loadServiceWorker() {
 	try {
-		await navigator.serviceWorker.register("sw.js");
+		await navigator.serviceWorker.register("js/sw.js");
 	} catch (error) {
 		console.error('Error while registering: ' + error.message);
 	}
