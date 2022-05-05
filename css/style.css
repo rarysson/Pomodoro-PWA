@@ -149,7 +149,7 @@ body {
 }
 
 .input-container:last-of-type {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .input-container label {
@@ -180,6 +180,7 @@ body {
   color: red;
 }
 
+.allow-notification-btn,
 .save-config-btn {
   color: var(--color-light);
   background-color: var(--color-dark);
@@ -187,13 +188,22 @@ body {
   border-radius: 7px;
   padding: 5px 10px;
   font-size: 14px;
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
   text-transform: uppercase;
   transition: all 250ms;
 }
 
+.allow-notification-btn {
+  display: none;
+  margin: 15px auto 0;
+}
+
+.save-config-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.allow-notification-btn:hover,
 .save-config-btn:hover {
   box-shadow: 0 0 5px var(--color-secondary);
 }

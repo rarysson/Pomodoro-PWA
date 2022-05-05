@@ -14,6 +14,7 @@ const $closeModalBtn = document.querySelector('.close-modal-btn');
 const $saveConfigBtn = document.querySelector('.save-config-btn');
 const $workInput = document.querySelector('#work-time');
 const $breakInput = document.querySelector('#break-time');
+const $allowNotificationBtn = document.querySelector('.allow-notification-btn');
 
 let idInterval;
 let clockIsRunning = false;
@@ -47,6 +48,14 @@ function resetClock() {
 	$clockBtn.textContent = 'Start';
 	$currentStatus.classList.add('blink');
 	$configBtn.disabled = false;
+
+	if (Notification.permission === 'granted') {
+		new Notification('Pomodoro', {
+			icon: 'icons/512.png',
+			body: isWorkTime ? 'Finished work timer' : 'Finished break timer',
+			vibrate: [200, 100, 200, 100, 200, 100, 400],
+		});
+	}
 
 	if (isWorkTime) {
 		isWorkTime = false;
@@ -109,7 +118,15 @@ $saveConfigBtn.addEventListener('click', () => {
 	}
 });
 
+$allowNotificationBtn.addEventListener('click', () => {
+	Notification.requestPermission();
+});
+
 timer.value = getTimeInSeconds(getWorkTime());
+
+if (Notification.permission === 'default' || Notification.permission === 'denied') {
+	$allowNotificationBtn.style.display = 'block';
+}
 
 async function loadServiceWorker() {
 	try {

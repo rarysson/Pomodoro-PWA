@@ -6,3 +6,4 @@ A study about Progressive Web App. To understand how to make a PWA I've built a 
 
 -   Offline usage
 -   Installation capability
+-   Push notification
