@@ -158,14 +158,18 @@ body {
 
 .input-container input {
   padding: 5px 5px 5px 10px;
-  max-width: 100px;
+  width: 100px;
   border-radius: 7px;
   border: 1px solid transparent;
   transition: all 250ms;
 }
 
-.input-container input:focus {
+.input-container input:not(:invalid):focus {
   outline: 1px solid var(--color-dark);
+}
+
+.input-container input:invalid:focus {
+  outline: 1px solid red;
 }
 
 .input-container input:invalid {

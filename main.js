@@ -38,20 +38,25 @@ let timer = new Proxy({ value: 0 }, {
 	}
 });
 
+function getTimeInSeconds(time) {
+	return time * 60;
+}
+
 function resetClock() {
 	clearInterval(idInterval);
 	clockIsRunning = false;
 	$clockBtn.textContent = 'Start';
 	$currentStatus.classList.add('blink');
+	$configBtn.disabled = false;
 
 	if (isWorkTime) {
 		isWorkTime = false;
 		$currentStatus.textContent = 'Break';
-		timer.value = getBreakTime() * 60;
+		timer.value = getTimeInSeconds(getBreakTime());
 	} else {
 		isWorkTime = true;
 		$currentStatus.textContent = 'Work';
-		timer.value = getWorkTime() * 60;
+		timer.value = getTimeInSeconds(getWorkTime());
 	}
 }
 
@@ -100,9 +105,9 @@ $saveConfigBtn.addEventListener('click', () => {
 
 		$modal.style.display = 'none';
 		timer.value = isWorkTime
-			? getWorkTime() * 60
-			: getBreakTime() * 60;
+			? getTimeInSeconds(getWorkTime())
+			: getTimeInSeconds(getBreakTime());
 	}
 });
 
-timer.value = getWorkTime() * 60;
+timer.value = getTimeInSeconds(getWorkTime());
