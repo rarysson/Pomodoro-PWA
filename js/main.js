@@ -130,7 +130,7 @@ if (Notification.permission === 'default' || Notification.permission === 'denied
 
 async function loadServiceWorker() {
 	try {
-		await navigator.serviceWorker.register("js/sw.js");
+		await navigator.serviceWorker.register("sw.js");
 	} catch (error) {
 		console.error('Error while registering: ' + error.message);
 	}
