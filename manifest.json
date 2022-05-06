@@ -1,7 +1,7 @@
 {
 	"name": "Pomodoro PWA",
 	"short_name": "Pomodoro",
-	"start_url": "/",
+	"start_url": "/Pomodoro-PWA/",
 	"display": "standalone",
 	"theme_color": "#D150FF",
 	"background_color": "#FDF4FF",
@@ -9,7 +9,7 @@
 	"prefer_related_applications": false,
 	"icons": [
 		{
-			"src": "/icons/512.png",
+			"src": "/Pomodoro-PWA/icons/512.png",
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "any"

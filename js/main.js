@@ -49,14 +49,6 @@ function resetClock() {
 	$currentStatus.classList.add('blink');
 	$configBtn.disabled = false;
 
-	if (Notification.permission === 'granted') {
-		new Notification('Pomodoro', {
-			icon: 'icons/512.png',
-			body: isWorkTime ? 'Finished work timer' : 'Finished break timer',
-			vibrate: [200, 100, 200, 100, 200, 100, 400],
-		});
-	}
-
 	if (isWorkTime) {
 		isWorkTime = false;
 		$currentStatus.textContent = 'Break';
@@ -65,6 +57,16 @@ function resetClock() {
 		isWorkTime = true;
 		$currentStatus.textContent = 'Work';
 		timer.value = getTimeInSeconds(getWorkTime());
+	}
+
+	if (Notification.permission === 'granted') {
+		navigator.serviceWorker.getRegistration('/').then(worker => {
+			worker.showNotification('Pomodoro', {
+				icon: 'icons/512.png',
+				body: !isWorkTime ? 'Finished work timer' : 'Finished break timer',
+				vibrate: [200, 100, 200, 100, 200, 100, 400],
+			});
+		});
 	}
 }
 
